@@ -11,10 +11,10 @@ This is a toy example referred to by the documentation.
 import os
 
 from vivarium.core.composition import (
-    plot_simulation_output,
     simulate_experiment,
     EXPERIMENT_OUT_DIR,
 )
+from vivarium.plots.simulation_output import plot_simulation_output
 from vivarium.core.emitter import (
     path_timeseries_from_data,
     timeseries_from_data,
