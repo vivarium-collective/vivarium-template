@@ -8,7 +8,7 @@ use the core Vivarium engine to create computational biology models.
 
 This repository contains a skeleton project you can build on to create
 your own models. To get started, check out the
-[getting started](https://vivarium-core.rtfd.io/getting_started.html)
+[getting started](https://vivarium-core.readthedocs.io/en/latest/getting_started.html)
 guide of the documentation. What follows is a template `README.md`.
 
 <!--
