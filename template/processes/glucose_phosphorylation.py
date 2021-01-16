@@ -9,7 +9,7 @@ This is a toy example referenced in the documentation.
 # TODO: Delete this file before publishing your project.
 
 from vivarium.core.process import Process
-from vivarium.core.composition import simulate_process
+from vivarium.core.composition import simulate_compartment_in_experiment
 from vivarium.plots.simulation_output import plot_simulation_output
 from vivarium.processes.tree_mass import TreeMass
 from vivarium.library.units import units
@@ -110,20 +110,6 @@ class GlucosePhosphorylation(Process):
             },
         }
 
-    def derivers(self):
-        # We instantiate TreeMass to make sure it's added to the deriver
-        # registry.
-        TreeMass()
-        return {
-            'my_deriver': {
-                'deriver': 'mass_deriver',
-                'port_mapping': {
-                    'global': 'global',
-                },
-                'config': {},
-            },
-        }
-
 
 if __name__ == '__main__':
     parameters = {
@@ -131,9 +117,14 @@ if __name__ == '__main__':
     }
     my_process = GlucosePhosphorylation(parameters)
 
+    # add TreeMass deriver
+    my_process.merge(
+        processes={'mass': TreeMass()},
+        topology={'mass': {'global': ('global',)}})
+
     settings = {
         'total_time': 10,
         'timestep': 0.1,
     }
-    timeseries = simulate_process(my_process, settings)
+    timeseries = simulate_compartment_in_experiment(my_process, settings)
     plot_simulation_output(timeseries, {}, './')
