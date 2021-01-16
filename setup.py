@@ -13,7 +13,7 @@ setup(
         # TODO: Replace 'template' with the name of your folder.
         'template',
         'template.processes',
-        'template.compartments',
+        'template.composites',
         'template.experiments',
     ],
     author='',  # TODO: Put your name here.

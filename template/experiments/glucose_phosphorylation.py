@@ -21,7 +21,7 @@ from vivarium.core.emitter import (
 )
 from vivarium.core.experiment import Experiment
 
-from template.compartments.injected_glc_phosphorylation import (
+from template.composites.injected_glc_phosphorylation import (
     InjectedGlcPhosphorylation,
 )
 
