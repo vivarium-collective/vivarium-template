@@ -9,7 +9,7 @@ This is a toy example referenced in the documentation.
 # TODO: Delete this file before publishing your project.
 
 from vivarium.core.process import Process
-from vivarium.core.composition import simulate_compartment_in_experiment
+from vivarium.core.composition import simulate_process
 from vivarium.plots.simulation_output import plot_simulation_output
 from vivarium.processes.tree_mass import TreeMass
 from vivarium.library.units import units
@@ -24,11 +24,8 @@ class GlucosePhosphorylation(Process):
         'K_GLC': 4e-2,
     }
 
-    def __init__(self, initial_parameters=None):
-        parameters = GlucosePhosphorylation.defaults
-        parameters.update(initial_parameters)
-        super(GlucosePhosphorylation, self).__init__(
-            parameters)
+    def __init__(self, parameters=None):
+        super().__init__(parameters)
 
     def next_update(self, timestep, states):
         # Get concentrations from state
@@ -126,5 +123,5 @@ if __name__ == '__main__':
         'total_time': 10,
         'timestep': 0.1,
     }
-    timeseries = simulate_compartment_in_experiment(my_process, settings)
+    timeseries = simulate_process(my_process, settings)
     plot_simulation_output(timeseries, {}, './')

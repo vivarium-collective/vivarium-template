@@ -8,7 +8,7 @@ import os
 
 from vivarium.core.process import Process
 from vivarium.core.composition import (
-    simulate_process_in_experiment,
+    simulate_process,
     PROCESS_OUT_DIR,
 )
 from vivarium.plots.simulation_output import plot_simulation_output
@@ -34,7 +34,7 @@ class Template(Process):
     def __init__(self, parameters=None):
         # parameters passed into the constructor merge with the defaults
         # and can be access through the self.parameters class variable
-        super(Template, self).__init__(parameters)
+        super().__init__(parameters)
 
     def ports_schema(self):
         '''
@@ -112,7 +112,7 @@ def run_template_process():
     sim_settings = {
         'total_time': 10,
         'initial_state': initial_state}
-    output = simulate_process_in_experiment(template_process, sim_settings)
+    output = simulate_process(template_process, sim_settings)
 
     return output
 

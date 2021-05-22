@@ -9,14 +9,14 @@ This is a toy example referenced in the documentation.
 # TODO: Delete this file before publishing your project.
 
 from vivarium.core.experiment import Experiment
-from vivarium.core.process import Composite
+from vivarium.core.process import Composer
 from vivarium.library.pretty import format_dict
 from vivarium.processes.injector import Injector
 
 from template.processes.glucose_phosphorylation import GlucosePhosphorylation
 
 
-class InjectedGlcPhosphorylation(Composite):
+class InjectedGlcPhosphorylation(Composer):
 
     defaults = {
         'glucose_phosphorylation': {
@@ -31,7 +31,7 @@ class InjectedGlcPhosphorylation(Composite):
     }
 
     def __init__(self, config):
-        super(InjectedGlcPhosphorylation, self).__init__(config)
+        super().__init__(config)
 
     def generate_processes(self, config):
         injector = Injector(self.config['injector'])
