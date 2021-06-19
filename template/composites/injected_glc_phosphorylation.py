@@ -8,8 +8,8 @@ This is a toy example referenced in the documentation.
 
 # TODO: Delete this file before publishing your project.
 
-from vivarium.core.experiment import Experiment
-from vivarium.core.process import Composer
+from vivarium.core.engine import Engine
+from vivarium.core.composer import Composer
 from vivarium.library.pretty import format_dict
 from vivarium.processes.injector import Injector
 
