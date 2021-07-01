@@ -140,6 +140,6 @@ def main():
     plot_simulation_output(output, plot_settings, out_dir)
 
 
-# run module with python template/process/template_process.py
+# run module with python template/processes/template_process.py
 if __name__ == '__main__':
     main()
